@@ -1,5 +1,5 @@
 import ServiceCard from "../Components/ServiceCard";
-import { services } from "../../public/data"; // Replace with your data file
+import { services } from "../../public/data";
 
 const HomePage = () => {
   return (

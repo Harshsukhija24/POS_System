@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Cart = ({ cartItems, onRemoveItem, onUpdateQuantity, onClearCart }) => {
+const Cart = ({ cartItems, onRemoveItem, onClearCart }) => {
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -31,7 +31,7 @@ const Cart = ({ cartItems, onRemoveItem, onUpdateQuantity, onClearCart }) => {
         Clear Cart
       </button>
       <Link
-        to="/checkout"
+        to="/CheckOutPage"
         className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
       >
         Proceed to Checkout

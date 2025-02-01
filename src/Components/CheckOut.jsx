@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Checkout({ cartItems, total, onCheckout }) {
+export default function Checkout({ handleCheckout }) {
   const [customerDetails, setCustomerDetails] = useState({
     name: "",
     email: "",
@@ -9,7 +9,15 @@ export default function Checkout({ cartItems, total, onCheckout }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCheckout(customerDetails);
+    console.log(handleCheckout);
+    if (typeof handleCheckout === "function") {
+      handleCheckout(customerDetails);
+    } else {
+      console.error(
+        "❌ ERROR: handleCheckout is not a function! Received:",
+        handleCheckout
+      );
+    }
   };
 
   return (
@@ -24,6 +32,7 @@ export default function Checkout({ cartItems, total, onCheckout }) {
             setCustomerDetails({ ...customerDetails, name: e.target.value })
           }
           className="w-full p-2 border rounded-md"
+          required
         />
         <input
           type="email"
@@ -33,6 +42,7 @@ export default function Checkout({ cartItems, total, onCheckout }) {
             setCustomerDetails({ ...customerDetails, email: e.target.value })
           }
           className="w-full p-2 border rounded-md"
+          required
         />
         <input
           type="tel"
@@ -42,6 +52,7 @@ export default function Checkout({ cartItems, total, onCheckout }) {
             setCustomerDetails({ ...customerDetails, phone: e.target.value })
           }
           className="w-full p-2 border rounded-md"
+          required
         />
         <button
           type="submit"
