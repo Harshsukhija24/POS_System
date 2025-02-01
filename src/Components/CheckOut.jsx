@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Checkout({ handleCheckout }) {
+const CheckOut = ({ handleCheckout }) => {
   const [customerDetails, setCustomerDetails] = useState({
     name: "",
     email: "",
@@ -9,15 +9,7 @@ export default function Checkout({ handleCheckout }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(handleCheckout);
-    if (typeof handleCheckout === "function") {
-      handleCheckout(customerDetails);
-    } else {
-      console.error(
-        "❌ ERROR: handleCheckout is not a function! Received:",
-        handleCheckout
-      );
-    }
+    handleCheckout(customerDetails);
   };
 
   return (
@@ -63,4 +55,6 @@ export default function Checkout({ handleCheckout }) {
       </form>
     </div>
   );
-}
+};
+
+export default CheckOut;
