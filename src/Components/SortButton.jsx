@@ -2,7 +2,7 @@ import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 
 const SortButton = ({ sortBy, setSortBy }) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex mr-18 gap-2">
       <button
         onClick={() => setSortBy("price-asc")}
         className={`p-2 flex items-center gap-1 border rounded-md ${
@@ -10,7 +10,7 @@ const SortButton = ({ sortBy, setSortBy }) => {
         }`}
       >
         <AiOutlineArrowUp />
-        Low to High
+        Price
       </button>
 
       <button
@@ -20,7 +20,7 @@ const SortButton = ({ sortBy, setSortBy }) => {
         }`}
       >
         <AiOutlineArrowDown />
-        High to Low
+        Price
       </button>
     </div>
   );

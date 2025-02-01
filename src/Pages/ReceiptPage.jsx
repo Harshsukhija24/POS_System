@@ -10,49 +10,72 @@ export default function ReceiptPage() {
     total: 0,
   };
 
-  return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Receipt</h2>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold mb-4">Transaction Details</h3>
-        <p>
-          <strong>Transaction ID:</strong> {transaction.id}
-        </p>
-        <p>
-          <strong>Date:</strong> {transaction.date}
-        </p>
-        <p>
-          <strong>Customer Name:</strong> {transaction.customer.name}
-        </p>
-        <p>
-          <strong>Customer Email:</strong> {transaction.customer.email}
-        </p>
-        <p>
-          <strong>Customer Phone:</strong> {transaction.customer.phone}
-        </p>
+   return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+          Receipt
+        </h2>
 
-        <h4 className="text-lg font-semibold mt-6 mb-2">Items Purchased</h4>
-        <ul className="space-y-2">
-          {transaction.items.map((item) => (
-            <li key={item.id} className="border-b pb-2">
-              <p>
-                <strong>{item.name}</strong> - ${item.price} x {item.quantity}
-              </p>
-            </li>
-          ))}
+        <div className="border-b pb-4 mb-4">
+          <h3 className="text-xl font-semibold text-gray-700">
+            Transaction Details
+          </h3>
+          <p className="text-gray-600">
+            <strong>Transaction ID:</strong> {transaction.id}
+          </p>
+          <p className="text-gray-600">
+            <strong>Date:</strong> {transaction.date}
+          </p>
+        </div>
+
+        <div className="border-b pb-4 mb-4">
+          <h3 className="text-lg font-semibold text-gray-700">Customer Info</h3>
+          <p className="text-gray-600">
+            <strong>Name:</strong> {transaction.customer.name}
+          </p>
+          <p className="text-gray-600">
+            <strong>Email:</strong> {transaction.customer.email}
+          </p>
+          <p className="text-gray-600">
+            <strong>Phone:</strong> {transaction.customer.phone}
+          </p>
+        </div>
+
+        <h4 className="text-lg font-semibold text-gray-700 mb-2">
+          Items Purchased
+        </h4>
+        <ul className="bg-gray-50 p-4 rounded-lg shadow-sm space-y-2">
+          {transaction.items.length > 0 ? (
+            transaction.items.map((item) => (
+              <li
+                key={item.id}
+                className="flex justify-between border-b pb-2 last:border-none"
+              >
+                <span className="font-medium text-gray-700">{item.name}</span>
+                <span className="text-gray-600">
+                  ${item.price} x {item.quantity}
+                </span>
+              </li>
+            ))
+          ) : (
+            <p className="text-gray-500">No items purchased</p>
+          )}
         </ul>
 
-        <p className="text-xl font-bold mt-6">
+        <p className="text-xl font-bold text-gray-800 mt-6 text-right">
           <strong>Total:</strong> ${transaction.total}
         </p>
-      </div>
 
-      <Link
-        to="/"
-        className="mt-6 inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-      >
-        New Transaction
-      </Link>
+        <div className="mt-6 flex justify-center">
+          <Link
+            to="/"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+          >
+            New Transaction
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
