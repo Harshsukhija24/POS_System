@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import i18n from "../i18n"; // Import i18n instance
+import i18n from "../i18n";
 
 const initialState = { lang: i18n.language || "en" };
 
@@ -9,7 +9,7 @@ const languageSlice = createSlice({
   reducers: {
     setLanguage: (state, action) => {
       state.lang = action.payload;
-      i18n.changeLanguage(action.payload); // Change language in i18n
+      i18n.changeLanguage(action.payload); 
     },
   },
 });

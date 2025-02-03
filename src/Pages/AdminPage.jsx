@@ -7,9 +7,8 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const AdminPage = () => {
   const { totalRevenue, totalServicesSold, mostPopularService } = useSelector(
     (state) => state.sales
-  );
+  );   
 
-  // Data for the pie chart
   const data = {
     labels: ["Total Revenue", "Total Services Sold"],
     datasets: [
@@ -27,9 +26,7 @@ const AdminPage = () => {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Sales Analytics</h2>
 
-      {/* Cards for Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        {/* Total Revenue */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-2">Total Revenue</h3>
           <p className="text-2xl font-bold text-blue-600">
@@ -37,7 +34,6 @@ const AdminPage = () => {
           </p>
         </div>
 
-        {/* Total Services Sold */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-2">Total Services Sold</h3>
           <p className="text-2xl font-bold text-green-500">
@@ -45,7 +41,6 @@ const AdminPage = () => {
           </p>
         </div>
 
-        {/* Most Popular Service */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-2">Most Popular Service</h3>
           <p className="text-2xl font-bold text-purple-600">
@@ -54,7 +49,6 @@ const AdminPage = () => {
         </div>
       </div>
 
-      {/* Pie Chart */}
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-xl font-semibold mb-4">Sales Distribution</h3>
         <div className="w-64 h-64 mx-auto">

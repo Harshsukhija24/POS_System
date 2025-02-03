@@ -38,7 +38,6 @@ const NavBar = () => {
             <option value="es">Español</option>
           </select>
 
-          {/* Shopping Cart */}
           <Link to="/cart" className="relative">
             <FaShoppingCart className="h-8 w-8" aria-label={t("cart")} />
             {totalItems > 0 && (

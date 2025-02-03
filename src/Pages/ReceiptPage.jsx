@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export default function ReceiptPage() {
+const ReceiptPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const transaction = location.state || {
@@ -12,11 +12,9 @@ export default function ReceiptPage() {
     total: 0,
   };
 
-  // Translation fallback to ensure keys exist
   const translate = (key) => {
     return t(key) !== key ? t(key) : key;
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
@@ -87,4 +85,6 @@ export default function ReceiptPage() {
       </div>
     </div>
   );
-}
+};
+
+export default ReceiptPage;

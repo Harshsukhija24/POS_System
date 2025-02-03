@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const ServiceCard = ({ service }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const selectedLanguage = useSelector((state) => state.language.lang); // Get selected language
+  const selectedLanguage = useSelector((state) => state.language.lang); 
 
   const handleAddToCart = () => {
     toast.success(t("add_to_cart"));

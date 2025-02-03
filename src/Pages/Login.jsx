@@ -1,4 +1,3 @@
-// src/pages/LoginPage.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +11,6 @@ const LoginPage = () => {
     const hardcodedPassword = "admin123";
 
     if (email === hardcodedEmail && password === hardcodedPassword) {
-      // Redirect to the admin page if login is successful
       navigate("/adminPage");
     } else {
       alert("Incorrect email or password");

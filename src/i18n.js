@@ -70,7 +70,6 @@ i18n.use(initReactI18next).init({
         new_transaction: "नया लेन-देन",
         category_description: "श्रेणी ",
         description: " विवरण",
-
         available_services: "उपलब्ध सेवाएं",
         admin_login: "व्यवस्थापक लॉगिन",
         payment_success: "भुगतान सफल",
@@ -107,7 +106,6 @@ i18n.use(initReactI18next).init({
         new_transaction: "Nouvelle transaction",
         category_description: " catégorie",
         description: "Description de la ",
-
         available_services: "Services disponibles",
         admin_login: "Connexion administrateur",
         payment_success: "Paiement réussi",
@@ -144,14 +142,13 @@ i18n.use(initReactI18next).init({
         new_transaction: "Nueva transacción",
         category_description: " categoría",
         description: "Descripción de la",
-
         available_services: "Servicios disponibles",
         admin_login: "Inicio de sesión de administrador",
         payment_success: "Pago exitoso",
       },
     },
   },
-  lng: "en", // Default language
+  lng: "en",  
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,

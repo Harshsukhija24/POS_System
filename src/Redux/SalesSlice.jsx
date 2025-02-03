@@ -1,4 +1,4 @@
-// src/redux/salesSlice.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -16,7 +16,7 @@ const salesSlice = createSlice({
       state.totalRevenue += amount;
       state.totalServicesSold += 1;
 
-      // Update most popular service
+      
       if (
         !state.mostPopularService ||
         service.sales > state.mostPopularService.sales

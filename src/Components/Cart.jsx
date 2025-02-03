@@ -26,7 +26,7 @@ const Cart = ({ cartItems, onRemoveItem, onClearCart }) => {
           </div>
           <button
             onClick={() => {
-              toast.success(t("remove") + " 🛒");
+              toast.success(t("remove"));
               onRemoveItem(item.id);
             }}
             className="mt-2 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 sm:mt-0 sm:w-auto"
@@ -41,7 +41,7 @@ const Cart = ({ cartItems, onRemoveItem, onClearCart }) => {
       <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-8 sm:space-y-0 sm:space-y-0 mt-4">
         <button
           onClick={() => {
-            toast.success(t("clear_cart") + " 🛒");
+            toast.success(t("clear_cart"));
             onClearCart();
           }}
           className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 sm:w-auto w-full mb-2 sm:mb-0"
@@ -49,8 +49,11 @@ const Cart = ({ cartItems, onRemoveItem, onClearCart }) => {
           {t("clear_cart")}
         </button>
         <Link
-          to="/CheckOutPage"
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 sm:w-auto w-full"
+          to={cartItems.length === 0 ? "#" : "/CheckOutPage"}
+          className={`bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 sm:w-auto w-full ${
+            cartItems.length === 0 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={(e) => cartItems.length === 0 && e.preventDefault()}
         >
           {t("proceed_to_checkout")}
         </Link>

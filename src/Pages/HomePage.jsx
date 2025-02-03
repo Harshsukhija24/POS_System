@@ -10,6 +10,7 @@ const Home = () => {
   const [sortBy, setSortBy] = useState("price-asc");
   const { t } = useTranslation();
 
+  
   useEffect(() => {
     const fetchServices = async () => {
       try {
