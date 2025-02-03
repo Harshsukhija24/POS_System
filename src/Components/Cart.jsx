@@ -38,7 +38,7 @@ const Cart = ({ cartItems, onRemoveItem, onClearCart }) => {
       <p className="text-xl font-bold mt-4">
         {t("total")}: ${total}
       </p>
-      <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-8 sm:space-y-0 sm:space-y-0 mt-4">
+      <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-8  sm:space-y-0 mt-4">
         <button
           onClick={() => {
             toast.success(t("clear_cart"));
