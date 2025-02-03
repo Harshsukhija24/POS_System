@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import ServiceCard from "../Components/ServiceCard";
 import SortButtons from "../Components/SortButton";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const [services, setServices] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [sortBy, setSortBy] = useState("price-asc");
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -41,34 +43,32 @@ const Home = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4">Available Services</h2>
-
-      <div className="mb-6 flex gap-2.5 justify-between ">
+      <h2 className="text-2xl font-bold mb-4">{t("available_services")}</h2>
+      <div className="mb-6 flex flex-col md:flex-row gap-2.5 justify-between">
         <input
           type="text"
-          placeholder="Search services..."
+          placeholder={t("search_services")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-96 h-12 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="md:w-96 w-full sm:w-60 h-12 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
 
-        <div className="flex flex-col md:flex-row gap-4 mb-6 items-center">
+        <div className="flex flex-col md:flex-row gap-4 mb-6 items-center w-full sm:w-auto">
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="p-2 border w-full sm:w-60 md:w-auto  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           >
-            <option value="all">All Categories</option>
-            <option value="fitness">Fitness</option>
-            <option value="therapy">Therapy</option>
-            <option value="workshop">Workshop</option>
+            <option value="all">{t("all_categories")}</option>
+            <option value="fitness">{t("fitness")}</option>
+            <option value="therapy">{t("therapy")}</option>
+            <option value="workshop">{t("workshop")}</option>
           </select>
 
           <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
         </div>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredAndSortedServices.map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}

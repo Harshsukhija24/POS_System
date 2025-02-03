@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../Redux/CartSlice";
 import Checkout from "../Components/CheckOut";
+import { addSale } from "../Redux/SalesSlice";
 
 const CheckOut = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,10 @@ const CheckOut = () => {
       items: cartItems,
       total: total,
     };
+    cartItems.forEach((item) => {
+      dispatch(addSale({ amount: item.price * item.quantity, service: item }));
+    });
+
     dispatch(clearCart());
 
     navigate("/ReceiptPage", { state: transaction });

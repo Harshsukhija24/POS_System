@@ -1,6 +1,9 @@
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 const SortButton = ({ sortBy, setSortBy }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex mr-18 gap-2">
       <button
@@ -10,7 +13,7 @@ const SortButton = ({ sortBy, setSortBy }) => {
         }`}
       >
         <AiOutlineArrowUp />
-        Price
+        {t("price")}
       </button>
 
       <button
@@ -20,7 +23,7 @@ const SortButton = ({ sortBy, setSortBy }) => {
         }`}
       >
         <AiOutlineArrowDown />
-        Price
+        {t("price")}
       </button>
     </div>
   );
